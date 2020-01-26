@@ -1,0 +1,29 @@
+#!/bin/bash
+
+echo "arg : $1"
+readme="./README.md"
+
+if [ "$1" ]; then
+  echo "Not null"
+else
+  echo "did not provide a http for cloning"
+fi
+
+
+
+read -p "Make a git repo in cwd from $1 ? [y/n]" answer
+
+if [ "$answer" == "y" ]; then
+  if [ -e "$readme" ]; then
+    echo "there is a readme"
+    :
+  else
+    echo "Made ReadMe" >> README.md
+  fi
+
+  echo "will make git repo now "
+elif [ "$answer" == "n" ]; then
+  echo "exiting"
+else
+  echo "please answer y or n"
+fi
